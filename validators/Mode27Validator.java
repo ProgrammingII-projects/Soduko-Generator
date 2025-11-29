@@ -15,11 +15,9 @@ public class Mode27Validator extends SudokuValidator {
     @Override
     public ValidationResult validate() {
         int[][] g = boardCopy();
-        // create thread pool with 27 threads (plus main)
         ExecutorService exec = Executors.newFixedThreadPool(27);
         List<Callable<Void>> tasks = new ArrayList<>();
 
-        // 9 row tasks
         for (int r = 0; r < 9; r++) {
             final int row = r;
             tasks.add(() -> {
@@ -35,7 +33,6 @@ public class Mode27Validator extends SudokuValidator {
             });
         }
 
-        // 9 col tasks
         for (int c = 0; c < 9; c++) {
             final int col = c;
             tasks.add(() -> {
@@ -51,7 +48,6 @@ public class Mode27Validator extends SudokuValidator {
             });
         }
 
-        // 9 box tasks
         for (int br = 0; br < 3; br++) {
             for (int bc = 0; bc < 3; bc++) {
                 final int boxIndex = br * 3 + bc + 1;
@@ -76,7 +72,7 @@ public class Mode27Validator extends SudokuValidator {
         }
 
         try {
-            List<Future<Void>> futures = exec.invokeAll(tasks); // waits for all
+            List<Future<Void>> futures = exec.invokeAll(tasks);
             for (Future<Void> f : futures) {
                 try {
                     f.get();

@@ -3,7 +3,6 @@ package model;
 import java.util.*;
 
 public class ValidationResult {
-    // For rows: map rowIndex -> map value -> list of positions (columns)
     private final Map<Integer, Map<Integer, List<Integer>>> rowDuplicates = new LinkedHashMap<>();
     private final Map<Integer, Map<Integer, List<Integer>>> colDuplicates = new LinkedHashMap<>();
     private final Map<Integer, Map<Integer, List<Integer>>> boxDuplicates = new LinkedHashMap<>();

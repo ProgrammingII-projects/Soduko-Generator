@@ -11,7 +11,6 @@ public abstract class SudokuValidator {
         this.board = board;
     }
 
-    // run full validation (must process whole board even if invalidities discovered)
     public abstract ValidationResult validate();
 
     protected int[][] boardCopy() {

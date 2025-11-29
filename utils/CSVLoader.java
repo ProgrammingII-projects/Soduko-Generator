@@ -7,13 +7,11 @@ import java.nio.file.*;
 import java.util.*;
 
 public class CSVLoader {
-    // Reads a 9x9 CSV with values 1..9. Accepts commas and/or spaces.
     public static SudokuBoard loadFromCsv(String path) throws IOException {
         List<String> lines = Files.readAllLines(Paths.get(path));
         List<Integer> numbers = new ArrayList<>();
         for (String line : lines) {
             if (line.trim().isEmpty()) continue;
-            // allow commas and spaces
             String[] parts = line.trim().split("[,\\s]+");
             for (String p : parts) {
                 if (p.trim().isEmpty()) continue;

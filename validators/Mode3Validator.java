@@ -21,7 +21,6 @@ public class Mode3Validator extends SudokuValidator {
         Future<?> boxesFuture = exec.submit(() -> validateBoxes(g));
 
         try {
-            // wait for all, but we must let all tasks process full board
             rowsFuture.get();
             colsFuture.get();
             boxesFuture.get();

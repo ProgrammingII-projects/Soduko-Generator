@@ -15,14 +15,12 @@ public class Mode0Validator extends SudokuValidator {
     public ValidationResult validate() {
         int[][] g = boardCopy();
 
-        // Rows
         for (int r = 0; r < 9; r++) {
             Map<Integer, List<Integer>> positions = new LinkedHashMap<>();
             for (int c = 0; c < 9; c++) {
                 int v = g[r][c];
-                positions.computeIfAbsent(v, k -> new ArrayList<>()).add(c + 1); // columns 1-based
+                positions.computeIfAbsent(v, k -> new ArrayList<>()).add(c + 1);
             }
-            // collect duplicates only
             for (Map.Entry<Integer, List<Integer>> e : positions.entrySet()) {
                 if (e.getValue().size() > 1) {
                     result.addRowDuplicate(r + 1, e.getKey(), e.getValue());
@@ -30,12 +28,11 @@ public class Mode0Validator extends SudokuValidator {
             }
         }
 
-        // Columns
         for (int c = 0; c < 9; c++) {
             Map<Integer, List<Integer>> positions = new LinkedHashMap<>();
             for (int r = 0; r < 9; r++) {
                 int v = g[r][c];
-                positions.computeIfAbsent(v, k -> new ArrayList<>()).add(r + 1); // rows 1-based
+                positions.computeIfAbsent(v, k -> new ArrayList<>()).add(r + 1);
             }
             for (Map.Entry<Integer, List<Integer>> e : positions.entrySet()) {
                 if (e.getValue().size() > 1) {
@@ -44,10 +41,9 @@ public class Mode0Validator extends SudokuValidator {
             }
         }
 
-        // Boxes
         for (int br = 0; br < 3; br++) {
             for (int bc = 0; bc < 3; bc++) {
-                int boxIndex = br * 3 + bc + 1; // 1-based box index
+                int boxIndex = br * 3 + bc + 1;
                 Map<Integer, List<Integer>> positions = new LinkedHashMap<>();
                 int baseRow = br * 3;
                 int baseCol = bc * 3;
@@ -55,7 +51,7 @@ public class Mode0Validator extends SudokuValidator {
                 for (int r = baseRow; r < baseRow + 3; r++) {
                     for (int c = baseCol; c < baseCol + 3; c++) {
                         int v = g[r][c];
-                        positions.computeIfAbsent(v, k -> new ArrayList<>()).add(pos); // position inside box 1..9
+                        positions.computeIfAbsent(v, k -> new ArrayList<>()).add(pos);
                         pos++;
                     }
                 }

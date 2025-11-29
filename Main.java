@@ -34,7 +34,6 @@ public class Main {
                 System.out.println("VALID");
             } else {
                 System.out.println("INVALID");
-                // Rows
                 for (Map.Entry<Integer, Map<Integer, java.util.List<Integer>>> rowEntry : res.getRowDuplicates().entrySet()) {
                     int rowIdx = rowEntry.getKey();
                     Map<Integer, java.util.List<Integer>> map = rowEntry.getValue();
@@ -43,7 +42,6 @@ public class Main {
                     }
                 }
                 System.out.println("------------------------------------------");
-                // Cols
                 for (Map.Entry<Integer, Map<Integer, java.util.List<Integer>>> colEntry : res.getColDuplicates().entrySet()) {
                     int colIdx = colEntry.getKey();
                     Map<Integer, java.util.List<Integer>> map = colEntry.getValue();
@@ -52,7 +50,6 @@ public class Main {
                     }
                 }
                 System.out.println("------------------------------------------");
-                // Boxes
                 for (Map.Entry<Integer, Map<Integer, java.util.List<Integer>>> boxEntry : res.getBoxDuplicates().entrySet()) {
                     int boxIdx = boxEntry.getKey();
                     Map<Integer, java.util.List<Integer>> map = boxEntry.getValue();
