@@ -7,7 +7,7 @@ import validators.SudokuValidator;
 import java.io.IOException;
 import java.util.Map;
 
-public class Main {
+public class main {
     public static void main(String[] args) {
         if (args.length != 2) {
             System.out.println("Usage: java -jar SudokuVerifier.jar <solution.csv> <mode>");
