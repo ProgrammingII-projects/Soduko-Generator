@@ -1,11 +1,10 @@
-import Factory.ValidatorFactory;
+import java.io.IOException;
+import java.util.Map;
+import factory.ValidatorFactory;
 import model.SudokuBoard;
 import model.ValidationResult;
 import utils.CSVLoader;
 import validators.SudokuValidator;
-
-import java.io.IOException;
-import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
