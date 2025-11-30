@@ -1,4 +1,4 @@
-import factory.ValidatorFactory;
+import Factory.ValidatorFactory;
 import model.SudokuBoard;
 import model.ValidationResult;
 import utils.CSVLoader;
