@@ -1,7 +1,6 @@
 package utils;
 
 import model.SudokuBoard;
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
